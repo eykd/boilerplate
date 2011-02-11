@@ -1,0 +1,22 @@
+/*-  SELF-CLEARING FLOATS
+----------------------------------------------------------------------*/
+.mod {zoom: 1;}
+
+
+
+/*-  TELL IE7+ TO SCALE IMAGES USING A MORE ATTRACTIVE METHOD
+----------------------------------------------------------------------*/
+/* bicubic resizing for non-native sized IMG:
+   code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/ */
+
+img {
+	-ms-interpolation-mode: bicubic;
+}
+
+/* make buttons play nice in IE:
+   www.viget.com/inspire/styling-the-button-element-in-internet-explorer/ */
+button {  width: auto; overflow: visible; }
+
+/* * html div#division { */
+/*   width: expression( document.body.clientWidth > 776 ? "777px" : "auto" ); */ /* sets max-width for IE */
+/* } */

@@ -1,0 +1,86 @@
+/* 
+Based on: Baseline - a designer framework
+Copyright (C) 2009 Stephane Curzi, ProjetUrbain.com
+Creative Commons Attribution-Share Alike 3.0 License
+version 0.5.3
+
+New column widths borrowed from Less Framework 3 <http://lessframework.com/>.
+*/
+
+.grid { position: relative; }
+.grid:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+
+/* Base column markup */
+.col { margin-right: 24px; display: block; float: left; } /* 2em */
+.colgroup { display: block; float: left; }
+.first { clear: left; }
+.last { clear: right; margin-right: 0; }
+.gutter { margin-right: 24px; } /* 2em */
+.no-gutter { margin-right: 0; }
+.align-left { float: left; }
+.align-right { float: right; text-align: right; }
+.clear { float: left; }
+header,
+section { padding-bottom: 18px; }
+.full { display: block; float: left; width: 100%; margin-right: 0 !important; }
+
+.leading { margin-bottom: 18px; } /* 1.5em */
+.noleading { margin-bottom: 0 !important; } 
+
+@media only screen and (min-width: 480px) {
+ /* Base column width */
+ .w1 { width: 60px !important; }
+ .w2 { width: 144px !important; }
+ .w3 { width: 228px !important; }
+ .w4 { width: 312px !important; }
+ .w5 { width: 396px !important; }
+ .w6 { width: 480px !important; }
+ .w7 { width: 564px !important; }
+ .w8 { width: 648px !important; }
+ .w9 { width: 732px !important; }
+ .w10 { width: 816px !important; }
+ .w11 { width: 900px !important; }
+ .w12 { width: 984px !important; }
+ .w13 { width: 1068px !important; }
+}
+
+/******************** Forms ********************/
+label.w1, label.w2,
+label.w3, label.w4,
+label.w5, label.w6,
+label.w7, label.w8,
+label.w9, label.w10,
+label.w11, label.w12,
+label.w13 { margin-right: 24px; float: left; }
+label.first { margin-right: 0; }
+
+@media only screen and (min-width: 480px) {
+ label.w1 input[type="text"], label.w1 input[type="password"], label.w1 input[type="select"], label.w1 input[type="search"] { width: 60px; }
+ label.w2 input[type="text"], label.w2 input[type="password"], label.w2 input[type="select"], label.w2 input[type="search"] { width: 144px; }
+ label.w3 input[type="text"], label.w3 input[type="password"], label.w3 input[type="select"], label.w3 input[type="search"] { width: 228px; }
+ label.w4 input[type="text"], label.w4 input[type="password"], label.w4 input[type="select"], label.w4 input[type="search"] { width: 312px; }
+ label.w5 input[type="text"], label.w5 input[type="password"], label.w5 input[type="select"], label.w5 input[type="search"] { width: 396px; }
+ label.w6 input[type="text"], label.w6 input[type="password"], label.w6 input[type="select"], label.w6 input[type="search"] { width: 480px; }
+ label.w7 input[type="text"], label.w7 input[type="password"], label.w7 input[type="select"], label.w7 input[type="search"] { width: 564px; }
+ label.w8 input[type="text"], label.w8 input[type="password"], label.w8 input[type="select"], label.w8 input[type="search"] { width: 648px; }
+ label.w9 input[type="text"], label.w9 input[type="password"], label.w9 input[type="select"], label.w9 input[type="search"] { width: 732px; }
+
+ label.w10 input[type="text"], label.w10 input[type="password"], label.w10 input[type="select"], label.w10 input[type="search"] { width: 816px; }
+ label.w11 input[type="text"], label.w11 input[type="password"], label.w11 input[type="select"], label.w11 input[type="search"] { width: 900px; }
+ label.w12 input[type="text"], label.w12 input[type="password"], label.w12 input[type="select"], label.w12 input[type="search"] { width: 984px; }
+ label.w13 input[type="text"], label.w13 input[type="password"], label.w13 input[type="select"], label.w13 input[type="search"] { width: 1068px; }
+ 
+ label.w1 select { width: 60px; }
+ label.w2 select { width: 144px; }
+ label.w3 select { width: 228px; }
+ label.w4 select { width: 312px; }
+ label.w5 select { width: 396px; }
+ label.w6 select { width: 480px; }
+ label.w7 select { width: 564px; }
+ label.w8 select { width: 648px; }
+ label.w9 select { width: 732px; }
+ label.w10 select { width: 816px; }
+ label.w11 select { width: 900px; }
+ label.w12 select { width: 984px; }
+ label.w13 select { width: 1068px; }
+}

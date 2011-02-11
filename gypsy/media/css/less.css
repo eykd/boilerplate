@@ -1,0 +1,45 @@
+/*	3-column layout	60 px columns, 24 px gutters, 46 px margins, 320 px total	---------------------------------------------------------	1     2      3	60px  144px  228px	*/body {
+    padding: 0 46px;
+}
+
+.grid {
+    width: 228px;
+}
+
+
+.w1, .w2, .w3, .w4, .w5, 
+.w6, .w7, .w8, .w9, .w10, 
+.w11, .w12, .w13 {
+    width: 228px;
+}
+
+/*	5-column layout	60 px columns, 24 px gutters, 42 px margins, 480 px total	---------------------------------------------------------	1     2      3      4      5	60px  144px  228px  312px  396px	*/
+@media only screen and (min-width: 480px) {
+	body {		padding: 0 42px;
+	}    .grid { 
+        width: 396px;
+    }
+}
+
+
+/*	8-column layout	60 px columns, 24 px gutters, 60 px margins, 768 px total	---------------------------------------------------------	1     2      3      4      5      6      7      8     	60px  144px  228px  312px  396px  480px  564px  648px	*/@media only screen and (min-width: 768px) {
+    body {
+        padding: 0 60px;
+    }
+    .grid {
+        width: 648px;
+    }
+}
+
+
+/*	13-column layout	60 px columns, 24 px gutters, 72 px margins, 1212 px total (extra space for scrollbars)	---------------------------------------------------------------------------------------	1     2      3      4      5      6      7      8      9      10     11     12     13	60px  144px  228px  312px  396px  480px  564px  648px  732px  816px  900px  984px  1068px	*/@media only screen and (min-width: 1212px) {
+    body {
+    	padding: 0 72px;
+    }
+    
+    .grid {
+        width: 1068px;
+    }
+}
+
+

@@ -1,0 +1,81 @@
+<!doctype html>  
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ --> 
+<!--[if lt IE 7 ]> <html class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html class="no-js ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8" />
+  {% load media %}
+
+  <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame 
+       Remove this if you use the .htaccess -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+  <title>{% block page_title %}{% endblock %} - {% block site_title %}{% endblock site_title %}</title>
+  <meta name="description" content="{% block meta_description %}{% endblock %}" />
+  <meta name="author" content="{% block meta_author %}{% endblock %}" />
+
+  <!--  Mobile viewport optimized: j.mp/bplateviewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Place favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
+  <link rel="shortcut icon" href="{% media_url 'favicon.ico' %}" />
+  <link rel="apple-touch-icon" href="{% media_url 'apple-touch-icon.png' %}" />
+
+
+  <!-- CSS : implied media="all" -->
+  {% include_media "main.css" %}
+  {% if debug %}{% include_media "debug.css" %}{% endif %}
+
+  <!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
+  {% include_media "modernizr.js" %}
+</head>
+
+<body lang="en" >
+  <div class="page">
+    <header class="head">
+      {% block header %}Head{% endblock %}
+    </header>
+    
+    <div class="body" role="main">
+      <div class="leftCol">
+        {% block left_col %}Left Column{% endblock %}
+      </div>
+      <div class="rightCol">
+        {% block right_col %}Right Column{% endblock %}
+      </div>
+      <div class="main">
+        {% block body %}Main Content{% endblock %}
+      </div>
+    </div>
+    
+    <footer class="foot">
+      {% block footer %}{% endblock %}
+    </footer>
+  </div> <!--! end of .page -->
+
+
+  <!-- JavaScript at the bottom for fast page loading -->
+
+  <!-- scripts concatenated and minified -->
+  {% include_media 'main.js' %}
+  <!-- end concatenated and minified scripts-->
+  
+  
+  <!--[if lt IE 7 ]>
+    {% include_media 'dd_belatedpng.js' %}
+   <script>DD_belatedPNG.fix('img, .png_bg'); // Fix any <img> or .png_bg bg-images. Also, please read goo.gl/mZiyb </script>
+  <![endif]-->
+
+
+  <!-- mathiasbynens.be/notes/async-analytics-snippet Change UA-XXXXX-X to be your site's ID -->
+  <script>
+    var _gaq=[['_setAccount','{% block GOOGLE_ANALYTICS_ACCOUNT_UA %}{% endblock %}'],['_trackPageview']];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script'));
+  </script>
+  
+</body>
+</html>

@@ -1,0 +1,88 @@
+
+/*
+Baseline - a designer framework
+http://baselinecss.com/
+Copyright (C) 2009 Stephane Curzi, ProjetUrbain.com
+Creative Commons Attribution-Share Alike 3.0 License
+version 0.5.2
+*/
+
+/******************** Base ********************/
+/* always force a scrollbar in non-IE: */
+html { overflow-y: scroll; }
+body { font-family: 'Vollkorn', georgia, "Times New Roman", times, serif; line-height: 1.5; background: white; color: black; }
+h1, h2, h3, h4, h5, h6 { line-height: 1.2; }
+h4, h5, h6 { font-weight: bold; }
+b, strong, caption, th, thead, dt, legend { font-weight: bold; }
+cite, dfn, em, i { font-style: italic; }
+code, kbd, samp, pre, tt, var { font-family: mono-space, monospace, sans-serif; }
+
+p { word-spacing: 0.125em; hyphenate: auto; hyphenate-lines: 3; }
+p+p { text-indent: 1.5em; }
+p+p.no-indent { text-indent: 0; }
+
+pre { white-space: pre; }
+pre {
+  /* www.pathf.com/blogs/2008/05/formatting-quoted-code-in-blog-posts-css21-white-space-pre-wrap/ */
+  white-space: pre; white-space: pre-wrap; white-space: pre-line; word-wrap: break-word;
+  padding: 15px;
+}
+
+
+del, .del { text-decoration: line-through; }
+mark, .mark { background: rgba(255, 255, 0, 0.4); padding: 0 .25em; }
+ins, .ins { color: #f00; }
+small, sup, sub, .small, .sup, .sub { font-size: 80%; }
+big, .big { font-size: 125%; line-height: 80%; }
+abbr, acronym, .abbr, .acronym { font-size: 85%; text-transform: uppercase; letter-spacing: .1em; }
+abbr[title], acronym[title], dfn[title] { border-bottom: 1px dotted black; cursor: help; }
+
+sup, sub, .sup, .sub { line-height: 0; }
+sup, .sup { vertical-align: super; }
+sub, .sub { vertical-align: sub; }
+/* set sub, sup without affecting line-height: gist.github.com/413930 */
+sub, sup { font-size: 75%; line-height: 0; position: relative; }
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+
+blockquote, .blockquote { padding: 1.5em; }
+hr { border: none; background: #ddd; width: 100%; }
+ul, ol { margin-left: 1.5em; }
+ul { list-style: disc outside; }
+ol { list-style: decimal outside; }
+input, select, button { cursor: pointer; }
+table { font: inherit; width: 100%; }
+
+/* Lifted from HTML5-boilerplate */
+body, select, input, textarea {
+  /* #444 looks better than black: twitter.com/H_FJ/statuses/11800719859 */
+  color: #444;
+}
+
+/* accessible focus treatment: people.opera.com/patrickl/experiments/keyboard/test */
+a:hover, a:active { outline: none; }
+a, a:active, a:visited { color: #607890; }
+a:hover { color: #036; }
+
+/* These selection declarations have to be separate.
+   No text-shadow: twitter.com/miketaylr/status/12228805301 */
+::-moz-selection{ text-shadow: none; }
+::selection { text-shadow: none; }
+
+/*- fluid images and objects ----------*/
+img,
+object,
+embed {max-width: 100%;}
+
+/* End HTML5-boilerplate */
+
+/* html 5 */
+article, aside, header, hgroup,
+nav, figure, section, footer { display: block; }
+
+/* remove margins for navigation lists */
+nav ul, nav li { margin: 0; list-style:none; list-style-image: none; }
+
+/* Debug */
+.debug { outline: solid gold 1px; }
+.debug-background { background: rgba(255, 215, 0, 0.2) !important; }

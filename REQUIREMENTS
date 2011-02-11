@@ -1,0 +1,8 @@
+Django
+Paver
+Werkzeug
+distribute
+django-extensions
+django-mediagenerator
+ipython
+wsgiref
