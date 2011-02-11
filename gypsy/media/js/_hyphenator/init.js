@@ -1,0 +1,3 @@
+(function ($) {
+  $(Hyphenator.run);
+})(jQuery);

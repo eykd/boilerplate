@@ -8,6 +8,7 @@
   <meta charset="utf-8" />
   {% load media %}
 
+  {% block root_meta %}
   <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame 
        Remove this if you use the .htaccess -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -19,17 +20,54 @@
   <!--  Mobile viewport optimized: j.mp/bplateviewport -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <meta name="google-site-verification" content="{% block GOOGLE_SITE_VERIFICATION %}{% endblock %}" />
+  {# <!-- Speaking of Google, don't forget to set your site up: http://google.com/webmasters --> #}
+  {% endblock root_meta %}
+  {% block page_meta %}{% endblock %}
+
+  {% block icons %}
   <!-- Place favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
   <link rel="shortcut icon" href="{% media_url 'favicon.ico' %}" />
+  {# <!-- This is the traditional favicon. #}
+  {#      - size: 16x16 or 32x32 #}
+  {#      - transparency is OK #}
+  {#      - see wikipedia for info on browser support: http://mky.be/favicon/ --> #}
   <link rel="apple-touch-icon" href="{% media_url 'apple-touch-icon.png' %}" />
+  {# <!-- The is the icon for iOS's Web Clip. #}
+  {#      - size: 57x57 for older iPhones, 72x72 for iPads, 114x114 for iPhone4's retina display (IMHO, just go ahead and use the biggest one) #}
+  {#      - To prevent iOS from applying its styles to the icon name it thusly: apple-touch-icon-precomposed.png #}
+  {#      - Transparency is not recommended (iOS will put a black BG behind the icon) --> #}
+  {% endblock icons %}
 
 
   <!-- CSS : implied media="all" -->
+  {% block root_css %}
   {% include_media "main.css" %}
-  {% if debug %}{% include_media "debug.css" %}{% endif %}
+  {% endblock root_css %}
+  {% block debug_css %}{% if debug %}{% include_media "debug.css" %}{% endif %}{% endblock debug_css %}
 
+  {% block root_ie_css %}
+    {# <!-- These are IE-specific conditional style sheets. #}
+    {#      You might consider removing the ones you don't end up using. --> #}
+         
+    <!--[if IE]>
+        {% include_media "patch.win-ie-all.min.css" %}
+    <![endif]-->
+    <!--[if IE 7]>
+        {% include_media "patch.win-ie7.min.css" %}
+    <![endif]-->
+    <!--[if lt IE 7]>
+        {% include_media "patch.win-ie-old.min.css" %}
+    <![endif]-->
+  {% endblock root_ie_css %}
+
+  {% block page_css %}{% endblock %}
+
+
+  {% block root_js %}
   <!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
   {% include_media "modernizr.js" %}
+  {% endblock root_js %}
 </head>
 
 <body lang="en" >
@@ -41,6 +79,7 @@
     <div class="body" role="main">
       <div class="leftCol">
         {% block left_col %}Left Column{% endblock %}
+        {% if debug %}Debug!{% endif %}
       </div>
       <div class="rightCol">
         {% block right_col %}Right Column{% endblock %}
@@ -58,17 +97,35 @@
 
   <!-- JavaScript at the bottom for fast page loading -->
 
+  {% if debug %}
+  <script type="text/javascript">debug = true;</script>
+  <!-- yui profiler and profileviewer - remove for production -->
+  {% include_media "profiling.js" %}
+  <!-- end profiling code -->
+  {% endif %}
+
   <!-- scripts concatenated and minified -->
+  {% block foot_js %}
   {% include_media 'main.js' %}
-  <!-- end concatenated and minified scripts-->
+  {% endblock foot_js %}
+  {% block page_js %}{% endblock %}
   
-  
-  <!--[if lt IE 7 ]>
-    {% include_media 'dd_belatedpng.js' %}
-   <script>DD_belatedPNG.fix('img, .png_bg'); // Fix any <img> or .png_bg bg-images. Also, please read goo.gl/mZiyb </script>
-  <![endif]-->
+  {% block root_ie_js %}
+  {# <!-- The following is STRONGLY OPTIONAL, but useful if you really need to kick IE in the pants. #}
+  {#      There are different flavors; pick the one right for your project: http://code.google.com/p/ie7-js/ --> #}
+  <!--[if lt IE 7]>
+      {% include_media 'dd_belatedpng.js' %}
+      <script>DD_belatedPNG.fix('img, .png_bg'); // Fix any <img> or .png_bg bg-images. Also, please read goo.gl/mZiyb </script>
+      <script type="text/javascript">IE7_PNG_SUFFIX=".png";</script>
+      {% include_media "patch.ie7.js" %}
+      <![endif]-->
+  <!--[if lt IE 9]>
+      {% include_media "patch.ie9.js" %}
+      <![endif]-->
+  {% endblock root_ie_js %}
 
 
+  {% if not debug %}
   <!-- mathiasbynens.be/notes/async-analytics-snippet Change UA-XXXXX-X to be your site's ID -->
   <script>
     var _gaq=[['_setAccount','{% block GOOGLE_ANALYTICS_ACCOUNT_UA %}{% endblock %}'],['_trackPageview']];
@@ -76,6 +133,7 @@
     g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
     s.parentNode.insertBefore(g,s)}(document,'script'));
   </script>
+  {% endif %}
   
 </body>
 </html>

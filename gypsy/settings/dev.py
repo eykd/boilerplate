@@ -7,4 +7,8 @@ from ._common import *
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
+MEDIA_DEV_MODE = True
 
+INSTALLED_APPS += (
+    'debug_toolbar',
+    )

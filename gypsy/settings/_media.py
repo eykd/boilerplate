@@ -53,10 +53,35 @@ MEDIA_BUNDLES = (
     ('debug.css',
      ########
      'css/_oocss/core/template/template_debug.css',
-     'css/_oocss//core/grid/grids_debug.css',
-     'css/_oocss//core/module/mod_debug.css',
-     'css/_oocss//core/media/media_debug.css',
-     'css/_oocss//core/table/table_debug.css',
+     'css/_oocss/core/grid/grids_debug.css',
+     'css/_oocss/core/module/mod_debug.css',
+     'css/_oocss/core/media/media_debug.css',
+     'css/_oocss/core/table/table_debug.css',
+     ),
+
+    ('patch.win-ie-all.min.css',
+     ########
+     'css/_patches/win-ie-all.css',
+     ),
+    
+    ("patch.win-ie7.min.css",
+     ########
+     "css/_patches/win-ie7.css",
+     ),
+
+    ("patch.win-ie-old.min.css",
+     ########
+     "css/_patches/win-ie-old.css",
+     ),
+
+
+    ##########
+    ######  JS
+    ##########
+
+    ('modernizr.js',
+     ########
+     'js/libs/modernizr.min.js',
      ),
 
     ('main.js',
@@ -68,15 +93,26 @@ MEDIA_BUNDLES = (
      'js/libs/crafty.js',
     ),
 
-    ('modernizr.js',
-     ########
-     'js/libs/modernizr.min.js',
-     ),
-
     ('dd_belatedpng.js',
      ########
      'js/libs/dd_belatedpng.js',
-     )
+     ),
+
+    ('patch.ie9.js',
+     ########
+     'js/_patches/IE9.js',
+     ),
+
+    ('patch.ie7.js',
+     ########
+     'js/_patches/ie7-squish.js',
+     ),
+
+    ('profiling.js',
+     ########
+     'js/_dev/profiling/yahoo-profiling.js',
+     'js/_dev/profiling/config.js',
+     ),
     )
 
 ROOT_MEDIA_FILTERS = {

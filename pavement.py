@@ -60,7 +60,7 @@ options(
 util.update(
     options.paved.django,
     dict(
-        settings = '%s.settings.dev' % PROJECT_NME,
+        settings = '%s.settings.dev' % PROJECT_NAME,
         syncdb = Bunch(
             fixtures = (__path__ / PROJECT_NAME / 'db').listdir('*.json'),
             ),

@@ -1,9 +1,11 @@
 # Django settings for gypsy project.
 from ._paths import PROJECT_ROOT, SITE_ROOT, APPS_ROOT, LIB_ROOT
 
+DEBUG = True
+
 ADMINS = (
     ('David Eyk', 'david.eyk@gmail.com'),
-)
+    )
 
 MANAGERS = ADMINS
 
@@ -48,8 +50,8 @@ SECRET_KEY = 'ka0if-+36t_s2ql=gq!iick@a4yguc0nv-8#yug&_jgze_ca)('
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
-)
+    #     'django.template.loaders.eggs.Loader',
+    )
 
 MIDDLEWARE_CLASSES = (
     'mediagenerator.middleware.MediaMiddleware',
@@ -58,15 +60,17 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-)
+    )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.debug',
-    #'django.core.context_processors.i18n',
     'django.core.context_processors.media',
-    'django.contrib.auth.context_processors.auth',
-    'django.contrib.messages.context_processors.messages',
-)
+    'django.core.context_processors.request',
+    #'django.core.context_processors.i18n',
+    #'django.contrib.auth.context_processors.auth',
+    #'django.contrib.messages.context_processors.messages',
+    #'django.core.context_processors.static',
+    )
 
 ROOT_URLCONF = 'gypsy.urls'
 
@@ -75,7 +79,7 @@ TEMPLATE_DIRS = (
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
     SITE_ROOT / 'templates',
-)
+    )
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -85,10 +89,13 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     #'django.contrib.staticfiles',
     # Uncomment the next line to enable the admin:
-    # 'django.contrib.admin',
+        # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
-    # 'django.contrib.admindocs',
+        # 'django.contrib.admindocs',
 
     'django_extensions',
     'mediagenerator',
     )
+
+from ._media import *
+from ._log import *

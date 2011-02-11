@@ -6,3 +6,4 @@ django-extensions
 django-mediagenerator
 ipython
 wsgiref
+virtualenv

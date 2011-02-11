@@ -7,13 +7,14 @@ import logging
 import sys
 
 from _paths import *
-from common import *
+from _common import *
 
 META_ROOT = path('/home/livestead/sites/livestead.com')
 
-DEBUG = True
-TESTING = False
+DEBUG = False
+TESTING = DEBUG
 TEMPLATE_DEBUG = DEBUG
+MEDIA_DEV_MODE = DEBUG
 
 DATABASES = {
     'default': {
