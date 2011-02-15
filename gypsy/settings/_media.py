@@ -115,12 +115,12 @@ MEDIA_BUNDLES = (
      'js/_lib/dd_belatedpng.js',
      ),
 
-    ('patch.ie9.js',
+    ('ie9.js',
      ########
      'js/_patches/IE9.js',
      ),
 
-    ('patch.ie7.js',
+    ('ie7.js',
      ########
      'js/_patches/ie7-squish.js',
      ),
