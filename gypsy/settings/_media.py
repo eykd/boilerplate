@@ -52,6 +52,7 @@ MEDIA_BUNDLES = (
 
     ('debug.css',
      ########
+     'css/noop.css',  # Empty CSS file
      'css/_oocss/core/template/template_debug.css',
      'css/_oocss/core/grid/grids_debug.css',
      'css/_oocss/core/module/mod_debug.css',
