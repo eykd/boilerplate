@@ -59,19 +59,31 @@ MEDIA_BUNDLES = (
      'css/_oocss/core/table/table_debug.css',
      ),
 
-    ('patch.win-ie-all.min.css',
+    ## Browser-specific patches
+    ########
+    ('win-ie-all.css',
      ########
      'css/_patches/win-ie-all.css',
      ),
     
-    ("patch.win-ie7.min.css",
+    ("win-ie7.css",
      ########
      "css/_patches/win-ie7.css",
      ),
 
-    ("patch.win-ie-old.min.css",
+    ("win-ie-old.css",
      ########
      "css/_patches/win-ie-old.css",
+     ),
+
+    ("win-ie6-below.css",
+     ########
+     "css/_patches/win-ie6-below.css",
+     ),
+
+    ("win-ie5.css",
+     ########
+     "css/_patches/win-ie5.css",
      ),
 
 
@@ -81,21 +93,26 @@ MEDIA_BUNDLES = (
 
     ('modernizr.js',
      ########
-     'js/libs/modernizr.min.js',
+     'js/_lib/modernizr.min.js',
      ),
 
     ('main.js',
      ########
-     'js/libs/json2.js',
-     'js/libs/jquery.js',
-     'js/libs/underscore.js',
-     'js/libs/backbone.js',
-     'js/libs/crafty.js',
+     'js/_lib/json2.js',
+     'js/_lib/jquery.js',
+     'js/_lib/underscore.js',
+     'js/_lib/backbone.js',
+     'js/_lib/markdown.js',
+     'js/_lib/crafty.js',
+
+     ## plugins
+     'js/_plugins/ba-debug.js',
+     'js/_plugins/namespace.js',
     ),
 
     ('dd_belatedpng.js',
      ########
-     'js/libs/dd_belatedpng.js',
+     'js/_lib/dd_belatedpng.js',
      ),
 
     ('patch.ie9.js',
