@@ -861,7 +861,7 @@ Crafty.c("2D", {
 			
 			//rotation
 			if(e.cos) {
-				obj.rotate(e);
+				if('rotate' in obj) obj.rotate(e);
 			} else { //move
 				//use MBR or current
 				var rect = this._mbr || this;
@@ -1097,7 +1097,6 @@ Crafty.polygon.prototype = {
 	}
 };
 
-ITERATOR = 0;
 Crafty.c("collision", {
 	
 	collision: function(poly) {
@@ -1571,21 +1570,25 @@ Crafty.extend({
 			//stop scrollbars
 			if(!w && !h) {
 				document.body.style.overflow = "hidden";
-				//add window resize
-				Crafty.addEvent(this, window, "resize", function() {
-					Crafty.window.init();
-					var w, h;
-					this.width = w = Crafty.window.width;
-					this.height = h = Crafty.window.height;
-					
-					Crafty.stage.elem.style.width = w;
-					Crafty.stage.elem.style.width = h;
-					if(Crafty._canvas) {
-						Crafty._canvas.width = w;
-						Crafty._canvas.height = h;
-					}
-				});
 			}
+			
+			Crafty.addEvent(this, window, "resize", function() {
+				Crafty.window.init();
+				var w, h, offset;
+				this.width = w = Crafty.window.width;
+				this.height = h = Crafty.window.height;
+				
+				Crafty.stage.elem.style.width = w;
+				Crafty.stage.elem.style.width = h;
+				if(Crafty._canvas) {
+					Crafty._canvas.width = w;
+					Crafty._canvas.height = h;
+				}
+				
+				offset = Crafty.inner(Crafty.stage.elem);
+				Crafty.stage.x = offset.x;
+				Crafty.stage.y = offset.y;
+			});
 			
 			//check if stage exists
 			var crstage = document.getElementById("cr-stage");
@@ -1791,8 +1794,8 @@ Crafty.extend({
 			
 			var current = q[i],
 				flag = false,
-				x = e.clientX - Crafty.stage.x,
-				y = e.clientY - Crafty.stage.y;
+				x = e.clientX - Crafty.stage.x + document.body.scrollLeft + document.documentElement.scrollLeft,
+				y = e.clientY - Crafty.stage.y + document.body.scrollTop + document.documentElement.scrollTop;
 			
 			if(current.map) {
 				if(current.map.containsPoint(x, y)) {
@@ -2389,7 +2392,7 @@ Crafty.extend({
 		},
 		
 		add: function(id, url) {
-			if(!Crafty.support.audio) return;
+			if(!Crafty.support.audio) return this;
 			
 			var elem, 
 				key, 
