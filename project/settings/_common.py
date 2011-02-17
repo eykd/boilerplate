@@ -1,4 +1,4 @@
-# Django settings for gypsy project.
+# Django settings for project project.
 from ._paths import PROJECT_ROOT, SITE_ROOT, APPS_ROOT, LIB_ROOT
 
 DEBUG = True
@@ -72,7 +72,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     #'django.core.context_processors.static',
     )
 
-ROOT_URLCONF = 'gypsy.urls'
+ROOT_URLCONF = 'project.urls'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".

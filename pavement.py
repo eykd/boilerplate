@@ -19,7 +19,7 @@ from paved import dist
 from paved import django
 from paved import util
 
-PROJECT_NAME = 'gypsy'
+PROJECT_NAME = 'project'
 VERSION = '0.1'
 
 __path__ = path(__file__).abspath().dirname()
