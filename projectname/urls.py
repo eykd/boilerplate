@@ -11,7 +11,7 @@ urlpatterns = patterns('',
                            dict(template="index.html"),
                            name="root"),
                        # Example:
-                           # (r'^project/', include('project.foo.urls')),
+                           # (r'^projectname/', include('projectname.foo.urls')),
 
                        # Uncomment the admin/doc line below to enable admin documentation:
                            # (r'^admin/doc/', include('django.contrib.admindocs.urls')),

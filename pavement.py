@@ -19,7 +19,7 @@ from paved import dist
 from paved import django
 from paved import util
 
-PROJECT_NAME = 'project'
+PROJECT_NAME = 'projectname'
 VERSION = '0.1'
 
 __path__ = path(__file__).abspath().dirname()

@@ -33,7 +33,7 @@ DEBUG_TOOLBAR_PANELS = (
 
 DEBUG_TOOLBAR_CONFIG = {
     'INTERCEPT_REDIRECTS': False,
-    #'EXTRA_SIGNALS': ['myproject.signals.MySignal'],
+    #'EXTRA_SIGNALS': ['myprojectname.signals.MySignal'],
     #'HIDE_DJANGO_SQL': False,
     #'TAG': 'div',
     }
